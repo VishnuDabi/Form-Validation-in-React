@@ -1,0 +1,101 @@
+import React from "react";
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+// import './App.css'
+// import './styles.css'
+import './my.css'
+import SignupForm from "./component/SignUpForm";
+import Basic from "./component/Me";
+const App = () => {
+  const formik = useFormik({
+    initialValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password:'',
+      phone: ''
+    },
+    onSubmit: values => {
+      alert(JSON.stringify(values, null, 2)
+      )
+    },validationSchema: Yup.object({
+      firstName: Yup.string()
+        .max(15, 'Must be 15 characters or less')
+        .required('Name Required'),
+      lastName: Yup.string()
+        .max(20, 'Must be 20 characters or less')
+        .required('Last Name Required'),
+      email: Yup.string().email('Invalid email address').required('Email Required'),
+      email: Yup.string().email('Invalid email address').required('Email Required'),
+      phone:Yup.number().required('Phone Number Required').min(10).max(10)
+    })
+  });
+  
+  return (
+    <>
+    <div className="registration-headding"><h1>Registration Page</h1></div>
+    {/* <SignupForm/> */}
+    {/* <Basic/> */}
+        <form onSubmit={formik.handleSubmit}>
+        <label htmlFor="">First Name:</label>
+        <input
+          type="text"
+          onChange={formik.handleChange}
+          onBlure={formik.handleBlur}
+          value={formik.values.firstName}
+          name='firstName'
+          id='firstName'
+        />
+        {formik.touched.firstName && formik.errors.firstName ? (<div className="error-msg">{formik.errors.firstName}</div>):null}
+        <label htmlFor="">Last Name:</label>
+        <input
+          type="text"
+          onChange={formik.handleChange}
+          onBlure={formik.handleBlur}
+          value={formik.values.lastName}
+          name='lastName'
+          id='lastName'
+        />
+        {formik.touched.lastName && formik.errors.lastName ? (<div className="error-msg">{formik.errors.lastName}</div>):null}
+        <label htmlFor="">Email:</label>
+        <input
+          type="email"
+          onChange={formik.handleChange}
+          onBlure={formik.handleBlur}
+          value={formik.values.email}
+          name='email'
+          id='email'
+        />
+        {formik.touched.email && formik.errors.email ? (
+         <div className="error-msg">{formik.errors.email}</div>
+       ) : null}
+       <label htmlFor="">Password:</label>
+        <input
+          type="password"
+          onChange={formik.handleChange}
+          onBlure={formik.handleBlur}
+          value={formik.values.password}
+          name='password'
+          id='password'
+        />
+        {formik.touched.password && formik.errors.password ? (
+         <div className="error-msg">{formik.errors.email}</div>
+       ) : null}
+        <label htmlFor="">Phone Number:</label>
+        <input
+          type="number"
+          onChange={formik.handleChange}
+          onBlure={formik.handleBlur}
+          value={formik.values.phone}
+          name='phone'
+          id='phone'
+        />
+        {formik.touched.phone && formik.errors.phone ? (
+         <div className="error-msg">{formik.errors.phone}</div>
+       ) : null}
+        <button type="submit">Submit</button>
+      </form>
+    </>
+  )
+}
+export default App;

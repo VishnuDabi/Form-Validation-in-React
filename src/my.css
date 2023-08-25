@@ -1,0 +1,68 @@
+  input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid white;
+    padding: 10px 15px;
+    margin-bottom: 5;
+    font-size: 14px;
+  }
+
+  input:focus {
+    outline: none !important;
+    border: 1px solid red;
+    box-shadow: 0 0 20px rgb(167, 28, 13);
+  }
+
+  form {
+    max-width: 30%;
+    margin: 0 auto;
+  }
+
+  label {
+    line-height: 2;
+    text-align: left;
+    display: block;
+    margin-bottom: 13px;
+    /* margin-top: 15px; */
+    color: rgb(27, 26, 26);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  button[type='submit'] {
+    color: rgb(160, 13, 13);
+    background-color: cadetblue;
+    border-radius: 15%;
+    display: block;
+    margin-top: 20px;
+  }
+
+  button:hover {
+    transform: scale(.9);
+
+  }
+
+  body {
+    /* background-image: url('https://img.freepik.com/premium-photo/keyboard-coffee-smartphone-notebook-color-background-top-view_1286-776.jpg'); */
+    background-image: url('https://img.freepik.com/free-photo/elevated-view-laptop-stationeries-blue-backdrop_23-2147880457.jpg?w=2000');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-color: rgb(81, 65, 65);
+  }
+
+  .error-msg {
+    color: red;
+    /* background-color: white; */
+    margin-top: 5px;
+    text-align: left;
+
+  }
+
+  .registration-headding {
+    color: rgb(25, 176, 123);
+  }
